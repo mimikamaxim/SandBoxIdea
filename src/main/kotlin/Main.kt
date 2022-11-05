@@ -1,7 +1,7 @@
-fun main(args: Array<String>) {
+fun main() {
     val s = "hello somebody, you are awesome"
     var s2 = s
-    val s1 = s.filter { it != ' '    }
+    val s1 = s.filter { it != ' ' }
     s2 = s2.dropLast(8)
     println(s)
     println(s1)
