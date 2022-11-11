@@ -24,3 +24,15 @@ class Simple (var s1:String = "First", var s2:String = "Second"){
         return Simple(s1,s2)
     }
 }
+
+fun testArray (){
+    var array = Array(10) { 1 }
+    println(array.toString())
+    array[3] = 3
+    //Change element changes existing array
+    println(array.toString())
+    //add element creates new array
+    array += 11
+    println(array.toString())
+    array.forEach { println(it) }
+}

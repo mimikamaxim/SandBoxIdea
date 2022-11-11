@@ -5,6 +5,7 @@ fun main(){
     val number = 16
     fibByRecursiveWrapper(number)
     fibByStepsWrapper(number)
+    fibRecursiveMemoWrap(number)
 }
 fun fibonacciBySteps (n: Int):Int{
     if (n==0) return 0
@@ -48,4 +49,22 @@ fun fibByRecursiveWrapper (n: Int){
 fun printCounter (){
     println("Iteration count is $counter")
     println("--------------------------------<")
+}
+
+fun fibonacciByRecursiveWithMemorisation (n: Int, resArray: Array<Int>):Int{
+    counter++
+    if (n==0) return 0
+    if (n==1) return 1
+    if (resArray[n]!=0) return resArray[n]
+    val a = fibonacciByRecursiveWithMemorisation(n-2,resArray)
+    val b = fibonacciByRecursiveWithMemorisation(n-1,resArray)
+    resArray[n] = a+b
+    return a+b
+}
+
+fun fibRecursiveMemoWrap (n: Int){
+    counter = 0
+    val array = Array<Int>(n+2) { 0 }
+    println("The fibonacci calculated recursively with memorisation of number $n is ${fibonacciByRecursiveWithMemorisation(n,array)}")
+    printCounter()
 }
