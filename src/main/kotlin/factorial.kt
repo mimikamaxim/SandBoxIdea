@@ -1,10 +1,14 @@
 fun main(){
     println("Program start...")
     val number = 16
-    println("The factorial of number $number is ${factorialSimple(number)}")
+    println("The fibonacci of number $number is ${fibonacciSimple(number)}")
+    println("The fibonacci of number $number is ${fibonacciRecursive(number)}")
+    println("counter $counter")
 }
 
-fun factorialSimple (n: Int):Int{
+var counter:Int = 0
+
+fun fibonacciSimple (n: Int):Int{
     if (n==0) return 0
     if (n==1) return 1
     //counter for steps
@@ -23,6 +27,15 @@ fun factorialSimple (n: Int):Int{
         //increase steps counter
         steps++
     }
-    println("The simple way factorial calculated by $steps steps")
+    println("The simple way fibonacci calculated by $steps steps")
     return res
+}
+
+fun fibonacciRecursive (n: Int):Int{
+    counter++
+    if (n==0) return 0
+    if (n==1) return 1
+    val a = fibonacciRecursive(n-2)
+    val b = fibonacciRecursive(n-1)
+    return a+b
 }
